@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-groupcam-dev-190004-authRole",
+      "UnauthRoleArn": "arn:aws:iam::524931250165:role/amplify-groupcam-dev-190004-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::524931250165:role/amplify-groupcam-dev-190004-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-groupcam-dev-190004-deployment",
+      "UnauthRoleName": "amplify-groupcam-dev-190004-unauthRole",
+      "StackName": "amplify-groupcam-dev-190004",
+      "StackId": "arn:aws:cloudformation:eu-central-1:524931250165:stack/amplify-groupcam-dev-190004/5fe9d2b0-d275-11ee-9bde-0a9baf0de707",
+      "AmplifyAppId": "deysemx3q6368"
+    }
+  }
+}

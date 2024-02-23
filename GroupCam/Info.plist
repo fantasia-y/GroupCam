@@ -6,5 +6,9 @@
 	<string>https://lamb-uncommon-goose.ngrok-free.app</string>
 	<key>PUSHER_INSTANCE_ID</key>
 	<string>ffb55783-058c-4870-b74e-7c389327098c</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

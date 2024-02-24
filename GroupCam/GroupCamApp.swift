@@ -6,9 +6,6 @@
 //
 
 import SwiftUI
-import Amplify
-import AWSCognitoAuthPlugin
-import AWSS3StoragePlugin
 import PushNotifications
 import CoreData
 
@@ -38,16 +35,6 @@ struct GroupCamApp: App {
     @StateObject var colorSchemeSetting = ColorSchemeSetting()
     
     let persistenceController = PersistenceController.shared
-    
-    init() {
-        do {
-            try Amplify.add(plugin: AWSCognitoAuthPlugin())
-            try Amplify.add(plugin: AWSS3StoragePlugin())
-            try Amplify.configure()
-        } catch {
-            print(error)
-        }
-    }
     
     var body: some Scene {
         WindowGroup {

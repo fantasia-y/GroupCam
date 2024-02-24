@@ -8,7 +8,6 @@
 import Foundation
 import GordonKirschAPI
 import UIKit
-import Amplify
 
 enum OnboardingState {
     case emailVerification
@@ -58,7 +57,7 @@ class ContentViewModel: ObservableObject {
         let key = "\(UUID().uuidString.lowercased()).jpg"
         var parameters = ["displayname": displayname]
         
-        if let image, let _ = await ImageUtils.uploadImage(image, key: "user/\(key)") {
+        if let image, let _ = await ImageUtils.uploadImage(image, key: "public/user/\(key)") {
             parameters["image"] = key
         }
         

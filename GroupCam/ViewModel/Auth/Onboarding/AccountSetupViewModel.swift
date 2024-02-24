@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import Combine
 import _PhotosUI_SwiftUI
-import Amplify
 import GordonKirschAPI
 
 class AccountSetupViewModel: ObservableObject {

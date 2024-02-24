@@ -20,7 +20,7 @@ class ProfileViewModel: ObservableObject {
         let key = "\(UUID().uuidString.lowercased()).jpg"
         var parameters = ["displayname": newDisplayname]
         
-        if let image, let _ = await ImageUtils.uploadImage(image, key: "user/\(key)") {
+        if let image, let _ = await ImageUtils.uploadImage(image, key: "public/user/\(key)") {
             parameters["imageName"] = key
         }
         

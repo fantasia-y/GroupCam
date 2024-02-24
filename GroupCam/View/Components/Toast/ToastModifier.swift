@@ -23,7 +23,7 @@ struct ToastModifier: ViewModifier {
                         view.offset(y: 16)
                     }
             }
-            .onChange(of: toast) { _ in
+            .onChange(of: toast) {
                 showToast()
             }
     }

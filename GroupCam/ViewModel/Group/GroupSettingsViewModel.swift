@@ -49,7 +49,7 @@ class GroupSettingsViewModel: ObservableObject {
         
         let key = "\(UUID().uuidString.lowercased()).jpg"
         
-        if let newImage, let _ = await ImageUtils.uploadImage(newImage, key: "group/\(key)") {
+        if let newImage, let _ = await ImageUtils.uploadImage(newImage, key: "public/group/\(key)") {
             parameters["imageName"] = key
         }
         

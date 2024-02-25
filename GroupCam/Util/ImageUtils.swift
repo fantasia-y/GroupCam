@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import AWSClientRuntime
 import ClientRuntime
 import AWSS3
 import os
@@ -26,7 +27,15 @@ class ImageUtils {
     @MainActor
     static func uploadImage(_ image: UIImage, key: String) async -> String? {
         do {
-            let client = try S3Client(region: "eu-central-1")
+            let config = try S3Client.S3ClientConfiguration(
+                region: "eu-central-1",
+                credentialsProvider: AWSClientRuntime.StaticCredentialsProvider(.init(
+                    accessKey: Secrets.awsAccessKey,
+                    secret: Secrets.awsSecretKey
+                ))
+            )
+            
+            let client = S3Client(config: config)
             let bucket = "onecam-dev133716-dev"
             
             if let data = image.jpegData(compressionQuality: 90) {

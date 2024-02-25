@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8D525722B8BD18700B4CB8A /* secrets.json in Resources */ = {isa = PBXBuildFile; fileRef = F8D525712B8BD18700B4CB8A /* secrets.json */; };
+		F8D525762B8BD40C00B4CB8A /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D525752B8BD40C00B4CB8A /* Secrets.swift */; };
 		F8D609062B890FF00062E88A /* GroupCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D609052B890FF00062E88A /* GroupCamApp.swift */; };
 		F8D6090A2B890FF20062E88A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D609092B890FF20062E88A /* Assets.xcassets */; };
 		F8D6090D2B890FF20062E88A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D6090C2B890FF20062E88A /* Preview Assets.xcassets */; };
@@ -124,6 +126,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F8D525712B8BD18700B4CB8A /* secrets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = secrets.json; sourceTree = "<group>"; };
+		F8D525742B8BD39100B4CB8A /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
+		F8D525752B8BD40C00B4CB8A /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		F8D609022B890FF00062E88A /* GroupCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D609052B890FF00062E88A /* GroupCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCamApp.swift; sourceTree = "<group>"; };
 		F8D609092B890FF20062E88A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -239,6 +244,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8D525702B8BD0F800B4CB8A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F8D525712B8BD18700B4CB8A /* secrets.json */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F8D525732B8BD37500B4CB8A /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				F8D525742B8BD39100B4CB8A /* ci_pre_xcodebuild.sh */,
+			);
+			path = ci_scripts;
+			sourceTree = "<group>";
+		};
 		F8D608F92B890FF00062E88A = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +282,7 @@
 		F8D609042B890FF00062E88A /* GroupCam */ = {
 			isa = PBXGroup;
 			children = (
+				F8D525732B8BD37500B4CB8A /* ci_scripts */,
 				F8D60A182B891A750062E88A /* Info.plist */,
 				F8D609232B8910280062E88A /* ViewModel */,
 				F8D609392B89102A0062E88A /* View */,
@@ -273,6 +295,7 @@
 				F8D609092B890FF20062E88A /* Assets.xcassets */,
 				F8D60A042B8912E40062E88A /* GroupCam.entitlements */,
 				F8D6090B2B890FF20062E88A /* Preview Content */,
+				F8D525702B8BD0F800B4CB8A /* SupportingFiles */,
 			);
 			path = GroupCam;
 			sourceTree = "<group>";
@@ -389,6 +412,7 @@
 				F8D609352B8910290062E88A /* URLUtils.swift */,
 				F8D609362B8910290062E88A /* Extensions.swift */,
 				F8D609372B8910290062E88A /* QRCodeUtils.swift */,
+				F8D525752B8BD40C00B4CB8A /* Secrets.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -770,6 +794,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D6090D2B890FF20062E88A /* Preview Assets.xcassets in Resources */,
+				F8D525722B8BD18700B4CB8A /* secrets.json in Resources */,
 				F8D6090A2B890FF20062E88A /* Assets.xcassets in Resources */,
 				F8D609D42B89102B0062E88A /* Localizable.xcstrings in Resources */,
 			);
@@ -826,6 +851,7 @@
 				F8D609932B89102B0062E88A /* AuthenticatedViewModel.swift in Sources */,
 				F8D609B22B89102B0062E88A /* GroupGridToolbar.swift in Sources */,
 				F8D609C32B89102B0062E88A /* CameraViewFinder.swift in Sources */,
+				F8D525762B8BD40C00B4CB8A /* Secrets.swift in Sources */,
 				F8D609982B89102B0062E88A /* CreateGroupViewModel.swift in Sources */,
 				F8D609962B89102B0062E88A /* GroupSettingsViewModel.swift in Sources */,
 				F8D609A42B89102B0062E88A /* AuthView.swift in Sources */,

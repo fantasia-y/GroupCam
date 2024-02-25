@@ -11,7 +11,7 @@ import CoreData
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        PushNotifications.shared.start(instanceId: Bundle.main.infoDictionary?["PUSHER_INSTANCE_ID"] as! String)
+        PushNotifications.shared.start(instanceId: Secrets.pusherInstance)
         PushNotifications.shared.registerForRemoteNotifications()
         return true
     }

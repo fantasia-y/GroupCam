@@ -263,6 +263,7 @@
 		F8D608F92B890FF00062E88A = {
 			isa = PBXGroup;
 			children = (
+				F8D525732B8BD37500B4CB8A /* ci_scripts */,
 				F8D609042B890FF00062E88A /* GroupCam */,
 				F8D60A0A2B89132B0062E88A /* NotificationService */,
 				F8D609032B890FF00062E88A /* Products */,
@@ -282,7 +283,6 @@
 		F8D609042B890FF00062E88A /* GroupCam */ = {
 			isa = PBXGroup;
 			children = (
-				F8D525732B8BD37500B4CB8A /* ci_scripts */,
 				F8D60A182B891A750062E88A /* Info.plist */,
 				F8D609232B8910280062E88A /* ViewModel */,
 				F8D609392B89102A0062E88A /* View */,

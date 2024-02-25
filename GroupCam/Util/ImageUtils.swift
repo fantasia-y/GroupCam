@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 import ClientRuntime
 import AWSS3
+import os
 
 enum CropOrientation {
     case portrait
@@ -17,6 +18,11 @@ enum CropOrientation {
 }
 
 class ImageUtils {
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: ImageUtils.self)
+    )
+    
     @MainActor
     static func uploadImage(_ image: UIImage, key: String) async -> String? {
         do {
@@ -38,7 +44,7 @@ class ImageUtils {
                 return key
             }
         } catch {
-            print(error.localizedDescription)
+            Self.logger.error("\(error.localizedDescription, privacy: .public)")
         }
 
         return nil

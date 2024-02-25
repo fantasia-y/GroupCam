@@ -8,6 +8,14 @@ cd $CI_PRIMARY_REPOSITORY_PATH/$CI_XCODE_PROJECT || exit 1
 
 echo $(ls)
 
+cd $CI_PROJECT_FILE_PATH
+
+echo $(ls)
+
+cd $CI_WORKSPACE_PATH
+
+echo $(ls)
+
 # Write a JSON File containing all the environment variables and secrets.
 touch ./SupportingFiles/secrets.json
 

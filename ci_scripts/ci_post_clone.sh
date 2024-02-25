@@ -6,6 +6,8 @@ echo "Stage: PRE-Xcode Build is activated .... "
 # This is important because the position of the subsequently mentioned files depend of this origin.
 cd $CI_PRIMARY_REPOSITORY_PATH/$CI_XCODE_PROJECT || exit 1
 
+echo $(ls)
+
 # Write a JSON File containing all the environment variables and secrets.
 touch ./SupportingFiles/secrets.json
 

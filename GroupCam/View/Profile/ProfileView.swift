@@ -104,7 +104,7 @@ struct ProfileView: View {
                     }
                     .destructive()
                     
-                    Text("profile.version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
+                    Text("profile.version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0") \(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1")")
                         .font(.subheadline)
                         .foregroundStyle(Color("textSecondary"))
                 }

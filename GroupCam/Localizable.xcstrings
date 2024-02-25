@@ -1199,19 +1199,19 @@
         }
       }
     },
-    "profile.version %@" : {
+    "profile.version %@ %@" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version %@"
+            "value" : "Version %@ (%@)"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version %@"
+            "value" : "Version %@ (%@)"
           }
         }
       }

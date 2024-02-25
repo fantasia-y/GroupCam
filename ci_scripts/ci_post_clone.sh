@@ -4,15 +4,7 @@ echo "Stage: PRE-Xcode Build is activated .... "
 
 # Move to the place where the scripts are located.
 # This is important because the position of the subsequently mentioned files depend of this origin.
-cd $CI_PRIMARY_REPOSITORY_PATH/$CI_XCODE_PROJECT || exit 1
-
-echo $(ls)
-
-cd $CI_PROJECT_FILE_PATH
-
-echo $(ls)
-
-cd $CI_WORKSPACE_PATH
+cd $CI_PRIMARY_REPOSITORY_PATH || exit 1
 
 echo $(ls)
 

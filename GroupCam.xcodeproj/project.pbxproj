@@ -127,7 +127,7 @@
 
 /* Begin PBXFileReference section */
 		F8D525712B8BD18700B4CB8A /* secrets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = secrets.json; sourceTree = "<group>"; };
-		F8D525742B8BD39100B4CB8A /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
+		F8D525742B8BD39100B4CB8A /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		F8D525752B8BD40C00B4CB8A /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		F8D609022B890FF00062E88A /* GroupCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D609052B890FF00062E88A /* GroupCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCamApp.swift; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 		F8D525732B8BD37500B4CB8A /* ci_scripts */ = {
 			isa = PBXGroup;
 			children = (
-				F8D525742B8BD39100B4CB8A /* ci_pre_xcodebuild.sh */,
+				F8D525742B8BD39100B4CB8A /* ci_post_clone.sh */,
 			);
 			path = ci_scripts;
 			sourceTree = "<group>";

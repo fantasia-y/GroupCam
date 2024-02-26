@@ -11,6 +11,8 @@ struct HomeView: View {
     @EnvironmentObject var userData: UserData
     @StateObject var viewModel = HomeViewModel()
     
+    @State var groupId: String?
+    
     var body: some View {
         if !viewModel.initialLoad {
             NavigationStack(path: $viewModel.path) {                
@@ -86,7 +88,7 @@ struct HomeView: View {
                     CreateGroupView()
                 }
                 .sheet(isPresented: $viewModel.showCodeScanner) {
-                    JoinGroupView()
+                    JoinGroupView(groupId: $groupId)
                 }
                 .sheet(isPresented: $viewModel.showProfile) {
                     ProfileView()
@@ -139,6 +141,12 @@ struct HomeView: View {
             }
             .environmentObject(viewModel)
             .toastView(toast: $viewModel.toast)
+            .onOpenURL { url in
+                if let id = URLUtils.handleIncomingUrl(url) {
+                    groupId = id
+                    viewModel.showCodeScanner = true
+                }
+            }
         } else {
             ProgressView()
                 .onAppear() {

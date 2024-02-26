@@ -43,7 +43,7 @@ struct PreviewGroupView<Actions: View>: View {
         GeometryReader { geometry in
             ZStack(alignment: .bottomLeading) {
                 if let group {
-                    LazyImage(url: URL(string: group.urls[FilterType.thumbnail.rawValue]!)) { state in
+                    LazyImage(url: URL(string: group.urls[size == .large ? FilterType.none.rawValue : FilterType.thumbnail.rawValue]!)) { state in
                         if let image = state.image {
                             image
                                 .groupPreview(width: geometry.size.width, size: size)

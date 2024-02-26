@@ -12,6 +12,8 @@ struct JoinGroupView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = JoinGroupViewModel()
     
+    var groupId: Binding<String?>
+    
     var body: some View {
         SheetWrapper(padding: nil) { _ in
             CarouselView(page: $viewModel.page) {
@@ -43,10 +45,19 @@ struct JoinGroupView: View {
             }
         }
         .toastView(toast: $viewModel.toast, isSheet: true)
+        .onAppear() {
+            if let groupId = groupId.wrappedValue, !groupId.isEmpty {
+                viewModel.groupId = groupId
+                viewModel.page += 1
+            }
+        }
+        .onDisappear() {
+            groupId.wrappedValue = nil
+        }
     }
 }
 
 #Preview {
-    JoinGroupView()
+    JoinGroupView(groupId: .constant(""))
         .environmentObject(JoinGroupViewModel())
 }

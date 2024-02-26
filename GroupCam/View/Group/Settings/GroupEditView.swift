@@ -25,7 +25,7 @@ struct GroupEditView: View {
                         Image(uiImage: image)
                             .groupPreview(width: geometry.size.width, size: .list)
                     } else {
-                        LazyImage(url: URL(string: group.wrappedValue.urls[FilterType.none.rawValue]!)) { state in
+                        LazyImage(url: URL(string: group.wrappedValue.urls[FilterType.thumbnail.rawValue]!)) { state in
                             if let image = state.image {
                                 image
                                     .groupPreview(width: geometry.size.width, size: .list)

@@ -5,9 +5,11 @@
 //  Created by Gordon on 23.02.24.
 //
 
+import Foundation
 import SwiftUI
 import PushNotifications
 import CoreData
+import Nuke
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -35,6 +37,10 @@ struct GroupCamApp: App {
     @StateObject var colorSchemeSetting = ColorSchemeSetting()
     
     let persistenceController = PersistenceController.shared
+    
+    init() {
+        ImagePipeline.shared = ImagePipeline(configuration: .withDataCache(sizeLimit: 1024 * 1024 * 1024 * 5))
+    }
     
     var body: some Scene {
         WindowGroup {

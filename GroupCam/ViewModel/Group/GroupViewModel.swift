@@ -8,6 +8,7 @@
 import Foundation
 import GordonKirschAPI
 import UIKit
+import Nuke
 
 struct ImageWrapper: Identifiable {
     let id = UUID()
@@ -205,8 +206,8 @@ class GroupViewModel: NSObject, ObservableObject {
             saveProgress = Double(downloadedImages.count + 1) / Double(selectedSubviews.count)
             print("Downloading image: \(selectedImage.imageName!)")
             
-            if let (data, _) = try? await URLSession.shared.data(from: URL(string: url)!) {
-                downloadedImages.append(UIImage(data: data)!)
+            if let image = try? await ImagePipeline.shared.image(for: URL(string: url)!) {
+                downloadedImages.append(image)
             }
         }
         

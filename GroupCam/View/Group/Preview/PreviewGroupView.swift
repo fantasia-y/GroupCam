@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
+import NukeUI
 
 enum GroupPreviewType {
     case large
@@ -43,12 +43,13 @@ struct PreviewGroupView<Actions: View>: View {
         GeometryReader { geometry in
             ZStack(alignment: .bottomLeading) {
                 if let group {
-                    CachedAsyncImage(url: URL(string: group.urls[FilterType.none.rawValue]!)!) { phase in
-                        switch phase {
-                        case .empty:
+                    LazyImage(url: URL(string: group.urls[FilterType.thumbnail.rawValue]!)) { state in
+                        if let image = state.image {
+                            image
+                                .groupPreview(width: geometry.size.width, size: size)
+                        } else if state.error != nil {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color("buttonSecondary"))
+                                Color("buttonSecondary")
                                     .if(size == .large) { view in
                                         view.frame(width: geometry.size.width, height: geometry.size.width * 1.25)
                                     }
@@ -58,20 +59,14 @@ struct PreviewGroupView<Actions: View>: View {
                                 
                                 ProgressView()
                             }
-                        case .success(let image):
-                            image
-                                .groupPreview(width: geometry.size.width, size: size)
-                        case .failure:
+                        } else {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color("buttonSecondary"))
+                                Color("buttonSecondary")
                                 
                                 Image(systemName: "questionmark")
                                     .foregroundStyle(Color("textPrimary"))
                                     .bold()
                             }
-                        @unknown default:
-                            EmptyView()
                         }
                     }
                 } else if let image {

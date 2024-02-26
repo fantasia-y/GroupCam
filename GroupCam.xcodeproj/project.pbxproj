@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8A6EFFD2B8CAD70002A97A5 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F8A6EFFC2B8CAD70002A97A5 /* Nuke */; };
+		F8A6EFFF2B8CAD70002A97A5 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = F8A6EFFE2B8CAD70002A97A5 /* NukeExtensions */; };
+		F8A6F0012B8CAD70002A97A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F8A6F0002B8CAD70002A97A5 /* NukeUI */; };
 		F8D525722B8BD18700B4CB8A /* secrets.json in Resources */ = {isa = PBXBuildFile; fileRef = F8D525712B8BD18700B4CB8A /* secrets.json */; };
 		F8D525762B8BD40C00B4CB8A /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D525752B8BD40C00B4CB8A /* Secrets.swift */; };
 		F8D609062B890FF00062E88A /* GroupCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D609052B890FF00062E88A /* GroupCamApp.swift */; };
@@ -91,7 +94,6 @@
 		F8D609D42B89102B0062E88A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F8D609862B89102A0062E88A /* Localizable.xcstrings */; };
 		F8D609D82B8910D30062E88A /* PushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = F8D609D72B8910D30062E88A /* PushNotifications */; };
 		F8D609DB2B89110B0062E88A /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = F8D609DA2B89110B0062E88A /* SwiftUIIntrospect */; };
-		F8D609F72B8911F80062E88A /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = F8D609F62B8911F80062E88A /* CachedAsyncImage */; };
 		F8D609FA2B8912250062E88A /* GordonKirschUtils in Frameworks */ = {isa = PBXBuildFile; productRef = F8D609F92B8912250062E88A /* GordonKirschUtils */; };
 		F8D609FD2B89124F0062E88A /* GordonKirschAPI in Frameworks */ = {isa = PBXBuildFile; productRef = F8D609FC2B89124F0062E88A /* GordonKirschAPI */; };
 		F8D60A002B8912680062E88A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F8D609FF2B8912680062E88A /* CodeScanner */; };
@@ -223,14 +225,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8D609F72B8911F80062E88A /* CachedAsyncImage in Frameworks */,
+				F8A6EFFD2B8CAD70002A97A5 /* Nuke in Frameworks */,
 				F8D60A002B8912680062E88A /* CodeScanner in Frameworks */,
 				F8D609D82B8910D30062E88A /* PushNotifications in Frameworks */,
 				F8D609DB2B89110B0062E88A /* SwiftUIIntrospect in Frameworks */,
 				F8D60A032B89127B0062E88A /* JWTDecode in Frameworks */,
 				F8D609FD2B89124F0062E88A /* GordonKirschAPI in Frameworks */,
 				F8E428492B8937B9001A8C73 /* AWSS3 in Frameworks */,
+				F8A6F0012B8CAD70002A97A5 /* NukeUI in Frameworks */,
 				F8D609FA2B8912250062E88A /* GordonKirschUtils in Frameworks */,
+				F8A6EFFF2B8CAD70002A97A5 /* NukeExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,14 +583,14 @@
 			isa = PBXGroup;
 			children = (
 				F8D609662B89102A0062E88A /* Card */,
-				F8D6096A2B89102A0062E88A /* CustomTextFieldBase.swift */,
 				F8D6096B2B89102A0062E88A /* Camera */,
-				F8D6096F2B89102A0062E88A /* CustomButton.swift */,
 				F8D609702B89102A0062E88A /* Toast */,
-				F8D609732B89102A0062E88A /* ActivityViewController.swift */,
 				F8D609742B89102A0062E88A /* Carousel */,
 				F8D609762B89102A0062E88A /* Avatar */,
 				F8D6097A2B89102A0062E88A /* Sheet */,
+				F8D6096A2B89102A0062E88A /* CustomTextFieldBase.swift */,
+				F8D6096F2B89102A0062E88A /* CustomButton.swift */,
+				F8D609732B89102A0062E88A /* ActivityViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -713,12 +717,14 @@
 			packageProductDependencies = (
 				F8D609D72B8910D30062E88A /* PushNotifications */,
 				F8D609DA2B89110B0062E88A /* SwiftUIIntrospect */,
-				F8D609F62B8911F80062E88A /* CachedAsyncImage */,
 				F8D609F92B8912250062E88A /* GordonKirschUtils */,
 				F8D609FC2B89124F0062E88A /* GordonKirschAPI */,
 				F8D609FF2B8912680062E88A /* CodeScanner */,
 				F8D60A022B89127B0062E88A /* JWTDecode */,
 				F8E428482B8937B9001A8C73 /* AWSS3 */,
+				F8A6EFFC2B8CAD70002A97A5 /* Nuke */,
+				F8A6EFFE2B8CAD70002A97A5 /* NukeExtensions */,
+				F8A6F0002B8CAD70002A97A5 /* NukeUI */,
 			);
 			productName = GroupCam;
 			productReference = F8D609022B890FF00062E88A /* GroupCam.app */;
@@ -771,12 +777,12 @@
 			packageReferences = (
 				F8D609D62B8910D30062E88A /* XCRemoteSwiftPackageReference "push-notifications-swift" */,
 				F8D609D92B89110B0062E88A /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
-				F8D609F52B8911F80062E88A /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				F8D609F82B8912250062E88A /* XCRemoteSwiftPackageReference "GordonKirschUtils" */,
 				F8D609FB2B89124F0062E88A /* XCRemoteSwiftPackageReference "GordonKirschAPI" */,
 				F8D609FE2B8912680062E88A /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				F8D60A012B89127B0062E88A /* XCRemoteSwiftPackageReference "JWTDecode" */,
 				F8E428472B8937B9001A8C73 /* XCRemoteSwiftPackageReference "aws-sdk-swift" */,
+				F8A6EFFB2B8CAD70002A97A5 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = F8D609032B890FF00062E88A /* Products */;
 			projectDirPath = "";
@@ -1204,6 +1210,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F8A6EFFB2B8CAD70002A97A5 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.4.0;
+			};
+		};
 		F8D609D62B8910D30062E88A /* XCRemoteSwiftPackageReference "push-notifications-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pusher/push-notifications-swift";
@@ -1220,14 +1234,6 @@
 				minimumVersion = 1.1.2;
 			};
 		};
-		F8D609F52B8911F80062E88A /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
-			};
-		};
 		F8D609F82B8912250062E88A /* XCRemoteSwiftPackageReference "GordonKirschUtils" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fantasia-y/GordonKirschUtils.git";
@@ -1241,7 +1247,7 @@
 			repositoryURL = "https://github.com/fantasia-y/GordonKirschAPI.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.3;
+				minimumVersion = 1.1.4;
 			};
 		};
 		F8D609FE2B8912680062E88A /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
@@ -1271,6 +1277,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F8A6EFFC2B8CAD70002A97A5 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8A6EFFB2B8CAD70002A97A5 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		F8A6EFFE2B8CAD70002A97A5 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8A6EFFB2B8CAD70002A97A5 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		F8A6F0002B8CAD70002A97A5 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8A6EFFB2B8CAD70002A97A5 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
 		F8D609D72B8910D30062E88A /* PushNotifications */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F8D609D62B8910D30062E88A /* XCRemoteSwiftPackageReference "push-notifications-swift" */;
@@ -1280,11 +1301,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F8D609D92B89110B0062E88A /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
 			productName = SwiftUIIntrospect;
-		};
-		F8D609F62B8911F80062E88A /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8D609F52B8911F80062E88A /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
-			productName = CachedAsyncImage;
 		};
 		F8D609F92B8912250062E88A /* GordonKirschUtils */ = {
 			isa = XCSwiftPackageProductDependency;

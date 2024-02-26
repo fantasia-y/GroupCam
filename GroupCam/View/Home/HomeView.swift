@@ -133,7 +133,7 @@ struct HomeView: View {
                         Button {
                             viewModel.showProfile = true
                         } label: {
-                            Avatar(user: userData.currentUser, filter: FilterType.thumbnail)
+                            Avatar(user: userData.currentUser)
                         }
                     }
                 }

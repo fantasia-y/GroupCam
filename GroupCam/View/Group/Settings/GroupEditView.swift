@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CachedAsyncImage
+import NukeUI
 
 struct GroupEditView: View {
     @EnvironmentObject var viewModel: GroupSettingsViewModel
@@ -25,20 +26,11 @@ struct GroupEditView: View {
                         Image(uiImage: image)
                             .groupPreview(width: geometry.size.width, size: .list)
                     } else {
-                        CachedAsyncImage(url: URL(string: group.wrappedValue.urls[FilterType.none.rawValue]!)!) { phase in
-                            switch phase {
-                            case .empty:
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color("buttonSecondary"))
-                                        .frame(height: 180)
-                                    
-                                    ProgressView()
-                                }
-                            case .success(let image):
+                        LazyImage(url: URL(string: group.wrappedValue.urls[FilterType.none.rawValue]!)) { state in
+                            if let image = state.image {
                                 image
                                     .groupPreview(width: geometry.size.width, size: .list)
-                            case .failure:
+                            } else if state.error != nil {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(Color("buttonSecondary"))
@@ -48,8 +40,14 @@ struct GroupEditView: View {
                                         .foregroundStyle(Color("textPrimary"))
                                         .bold()
                                 }
-                            @unknown default:
-                                EmptyView()
+                            } else {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color("buttonSecondary"))
+                                        .frame(height: 180)
+                                    
+                                    ProgressView()
+                                }
                             }
                         }
                     }

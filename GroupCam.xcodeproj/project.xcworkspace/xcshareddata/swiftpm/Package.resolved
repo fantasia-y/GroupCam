@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fantasia-y/GordonKirschAPI.git",
       "state" : {
-        "revision" : "5ff02229eafc05c281fd217f10b09880b9c47fd4",
-        "version" : "1.1.4"
+        "revision" : "cb50fdc269b9216759f719966f609d2cb435ef4d",
+        "version" : "1.1.6"
       }
     },
     {
@@ -91,6 +91,15 @@
       }
     },
     {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke.git",
+      "state" : {
+        "revision" : "8ecbfc886da39bccb01c34abef5f2ff4073ad633",
+        "version" : "12.4.0"
+      }
+    },
+    {
       "identity" : "ohhttpstubs",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AliSoftware/OHHTTPStubs",
@@ -109,6 +118,15 @@
       }
     },
     {
+      "identity" : "reachability.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ashleymills/Reachability.swift",
+      "state" : {
+        "revision" : "c01127cb51f591045696128effe43c16840d08bf",
+        "version" : "5.2.0"
+      }
+    },
+    {
       "identity" : "smithy-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/smithy-lang/smithy-swift",
@@ -124,15 +142,6 @@
       "state" : {
         "revision" : "e97a6fcb1ab07462881ac165fdbb37f067e205d5",
         "version" : "1.5.4"
-      }
-    },
-    {
-      "identity" : "swiftui-cached-async-image",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
-      "state" : {
-        "revision" : "467a3d17479887943ab917a379e62bbaff60ac8a",
-        "version" : "2.1.1"
       }
     },
     {

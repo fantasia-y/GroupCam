@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
 
 struct HomeView: View {
     @EnvironmentObject var userData: UserData

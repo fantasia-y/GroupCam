@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
 
 struct GroupView: View {
     @StateObject var viewModel = GroupViewModel()

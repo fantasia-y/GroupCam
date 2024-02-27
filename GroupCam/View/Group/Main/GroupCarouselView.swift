@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
+import NukeUI
 
 struct GroupCarouselView: View {
     @EnvironmentObject var viewModel: GroupViewModel
@@ -29,38 +29,33 @@ struct GroupCarouselView: View {
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 8) {
                             ForEach(viewModel.images) { image in
-                                CachedAsyncImage(url: URL(string: image.urls[FilterType.none.rawValue]!), urlCache: .imageCache) { phase in
-                                    switch phase {
-                                    case .empty:
-                                        ZStack {
-                                            Rectangle()
-                                                .frame(width: geometry.size.width, height: geometry.size.height)
-                                            
-                                            ProgressView()
-                                        }
-                                    case .success(let phaseImage):
-                                        phaseImage
+                                LazyImage(url: URL(string: image.urls[FilterType.none.rawValue]!)) { state in
+                                    if let stateImage = state.image {
+                                        stateImage
                                             .resizable()
-                                            .aspectRatio(contentMode: .fit)
+                                            .scaledToFill()
                                             .frame(width: geometry.size.width, height: geometry.size.height)
                                             .containerRelativeFrame(.horizontal)
-                                            .matchedGeometryEffect(id: image.id, in: imageDetail)
                                             .id(image.id)
                                             .onAppear() {
                                                 currentGroupImage = image
-                                                loadedImage = phaseImage
+                                                loadedImage = stateImage
                                             }
-                                    case .failure:
+                                    } else if state.error != nil {
                                         ZStack {
-                                            Rectangle()
-                                                .fill(.gray)
+                                            Color("buttonSecondary")
                                                 .frame(width: geometry.size.width, height: geometry.size.height)
                                             
                                             Image(systemName: "exclamationmark.triangle")
                                                 .foregroundStyle(.white)
                                         }
-                                    @unknown default:
-                                        EmptyView()
+                                    } else {
+                                        ZStack {
+                                            Color("buttonSecondary")
+                                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                            
+                                            ProgressView()
+                                        }
                                     }
                                 }
                             }

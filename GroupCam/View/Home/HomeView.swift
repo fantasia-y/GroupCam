@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
 
 struct HomeView: View {
     @EnvironmentObject var userData: UserData
     @StateObject var viewModel = HomeViewModel()
+    
+    @State var groupId: String?
     
     var body: some View {
         if !viewModel.initialLoad {
@@ -87,7 +88,7 @@ struct HomeView: View {
                     CreateGroupView()
                 }
                 .sheet(isPresented: $viewModel.showCodeScanner) {
-                    JoinGroupView()
+                    JoinGroupView(groupId: $groupId)
                 }
                 .sheet(isPresented: $viewModel.showProfile) {
                     ProfileView()
@@ -133,13 +134,19 @@ struct HomeView: View {
                         Button {
                             viewModel.showProfile = true
                         } label: {
-                            Avatar(user: userData.currentUser, filter: FilterType.thumbnail)
+                            Avatar(user: userData.currentUser)
                         }
                     }
                 }
             }
             .environmentObject(viewModel)
             .toastView(toast: $viewModel.toast)
+            .onOpenURL { url in
+                if let id = URLUtils.handleIncomingUrl(url) {
+                    groupId = id
+                    viewModel.showCodeScanner = true
+                }
+            }
         } else {
             ProgressView()
                 .onAppear() {

@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
 import GordonKirschAPI
+import NukeUI
 
 struct GroupImageView: View {
     @EnvironmentObject var viewModel: GroupViewModel
@@ -22,47 +22,40 @@ struct GroupImageView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            CachedAsyncImage(url: URL(string: image.urls[FilterType.thumbnail.rawValue]!)) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                case .success(let image):
+            LazyImage(url: URL(string: image.urls[FilterType.thumbnail.rawValue]!)) { state in
+                if let image = state.image {
                     Button {
                         viewModel.selectedImage = self.image
                         viewModel.showCarousel = true
                     } label: {
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .scaledToFill()
+                            .clipped()
                             .contextMenu {
                                 Button("button.delete", systemImage: "trash", role: .destructive) {
                                     showDeleteDialog = true
                                 }
                             } preview: {
-                                CachedAsyncImage(url: URL(string: self.image.urls[FilterType.none.rawValue]!)) { contextPhase in
-                                    switch contextPhase {
-                                    case .empty:
-                                        ZStack {
-                                            Rectangle()
-                                                .fill(.gray)
-                                                .frame(minWidth: 300, minHeight: 300)
-                                            
-                                            ProgressView()
-                                        }
-                                    case .success(let contextImage):
+                                LazyImage(url: URL(string: self.image.urls[FilterType.none.rawValue]!)) { contextState in
+                                    if let contextImage = contextState.image {
                                         contextImage
                                             .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                    case .failure:
+                                            .scaledToFit()
+                                    } else if contextState.error != nil {
                                         ZStack {
-                                            Rectangle()
-                                                .fill(.gray)
+                                            Color("buttonSecondary")
                                             
                                             Image(systemName: "exclamationmark.triangle")
                                                 .foregroundStyle(.white)
                                         }
-                                    @unknown default:
-                                        EmptyView()
+                                    } else {
+                                        ZStack {
+                                            Color("buttonSecondary")
+                                                .frame(minWidth: 300, minHeight: 300)
+                                            
+                                            ProgressView()
+                                        }
                                     }
                                 }
                             }
@@ -74,17 +67,19 @@ struct GroupImageView: View {
                                 .opacity(0.2)
                         }
                     }
-                case .failure:
+                } else if state.error != nil {
                     ZStack {
-                        Rectangle()
-                            .fill(.gray)
-                            .frame(minWidth: 120, minHeight: 120)
+                        Color.gray
                         
                         Image(systemName: "exclamationmark.triangle")
                             .foregroundStyle(.white)
                     }
-                @unknown default:
-                    EmptyView()
+                } else {
+                    ZStack {
+                        Color.gray
+                        
+                        ProgressView()
+                    }
                 }
             }
             

@@ -1,33 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "amplify-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/aws-amplify/amplify-swift",
-      "state" : {
-        "revision" : "dc864062192b57f61a96b86a423181d73dbbfedf",
-        "version" : "2.27.0"
-      }
-    },
-    {
-      "identity" : "amplify-swift-utils-notifications",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/aws-amplify/amplify-swift-utils-notifications.git",
-      "state" : {
-        "revision" : "959eec669ba97c7d923b963c3e66ca8a0b2737f6",
-        "version" : "1.1.1"
-      }
-    },
-    {
-      "identity" : "aws-appsync-realtime-client-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git",
-      "state" : {
-        "revision" : "a08684c5004e2049c29f57a5938beae9695a1ef7",
-        "version" : "3.1.2"
-      }
-    },
-    {
       "identity" : "aws-crt-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/awslabs/aws-crt-swift",
@@ -77,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fantasia-y/GordonKirschAPI.git",
       "state" : {
-        "revision" : "6bbb6da15aa6b6958062ba4ccf4d5dbf227b5720",
-        "version" : "1.1.3"
+        "revision" : "cb50fdc269b9216759f719966f609d2cb435ef4d",
+        "version" : "1.1.6"
       }
     },
     {
@@ -118,6 +91,15 @@
       }
     },
     {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke.git",
+      "state" : {
+        "revision" : "8ecbfc886da39bccb01c34abef5f2ff4073ad633",
+        "version" : "12.4.0"
+      }
+    },
+    {
       "identity" : "ohhttpstubs",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AliSoftware/OHHTTPStubs",
@@ -136,6 +118,15 @@
       }
     },
     {
+      "identity" : "reachability.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ashleymills/Reachability.swift",
+      "state" : {
+        "revision" : "c01127cb51f591045696128effe43c16840d08bf",
+        "version" : "5.2.0"
+      }
+    },
+    {
       "identity" : "smithy-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/smithy-lang/smithy-swift",
@@ -145,39 +136,12 @@
       }
     },
     {
-      "identity" : "sqlite.swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/stephencelis/SQLite.swift.git",
-      "state" : {
-        "revision" : "5f5ad81ac0d0a0f3e56e39e646e8423c617df523",
-        "version" : "0.13.2"
-      }
-    },
-    {
-      "identity" : "starscream",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/daltoniam/Starscream",
-      "state" : {
-        "revision" : "df8d82047f6654d8e4b655d1b1525c64e1059d21",
-        "version" : "4.0.4"
-      }
-    },
-    {
       "identity" : "swift-log",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
         "revision" : "e97a6fcb1ab07462881ac165fdbb37f067e205d5",
         "version" : "1.5.4"
-      }
-    },
-    {
-      "identity" : "swiftui-cached-async-image",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
-      "state" : {
-        "revision" : "467a3d17479887943ab917a379e62bbaff60ac8a",
-        "version" : "2.1.1"
       }
     },
     {

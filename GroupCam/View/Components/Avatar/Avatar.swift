@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
+import NukeUI
 
 enum AvatarSize: CGFloat {
     case small = 32
@@ -48,25 +48,15 @@ struct Avatar: View {
     
     var body: some View {
         if !imageUrl.isEmpty {
-            CachedAsyncImage(url: URL(string: imageUrl)!) { phase in
-                switch phase {
-                case .empty:
-                    ZStack {
-                        Circle()
-                            .fill(Color(red: 0.85, green: 0.85, blue: 0.85))
-                            .frame(width: size.rawValue, height: size.rawValue)
-                        
-                        ProgressView()
-                            .frame(width: size.rawValue, height: size.rawValue)
-                    }
-                case .success(let image):
+            LazyImage(url: URL(string: imageUrl)) { state in
+                if let image = state.image {
                     image
                         .resizable()
                         .scaledToFill()
                         .clipped()
                         .frame(width: size.rawValue, height: size.rawValue)
                         .clipShape(.circle)
-                case .failure:
+                } else if state.error != nil {
                     ZStack {
                         Circle()
                             .fill(Color(red: 0.85, green: 0.85, blue: 0.85))
@@ -75,8 +65,15 @@ struct Avatar: View {
                         Image(systemName: "questionmark")
                             .foregroundStyle(.white)
                     }
-                @unknown default:
-                    EmptyView()
+                } else {
+                    ZStack {
+                        Circle()
+                            .fill(Color(red: 0.85, green: 0.85, blue: 0.85))
+                            .frame(width: size.rawValue, height: size.rawValue)
+                        
+                        ProgressView()
+                            .frame(width: size.rawValue, height: size.rawValue)
+                    }
                 }
             }
         } else if let image {

@@ -8,7 +8,7 @@
 import Foundation
 import GordonKirschAPI
 import UIKit
-import Amplify
+import Nuke
 
 struct ImageWrapper: Identifiable {
     let id = UUID()
@@ -110,7 +110,7 @@ class GroupViewModel: NSObject, ObservableObject {
         
         let image = UIImage(data: localImage.imageData!)!
         let name = "\(localImage.id!.uuidString.lowercased()).jpeg"
-        let key = "images/\(localImage.groupId!.uuidString.lowercased())/\(name)"
+        let key = "public/images/\(localImage.groupId!.uuidString.lowercased())/\(name)"
         
         if let _ = await ImageUtils.uploadImage(image, key: key) {
             let result = await API.shared.post(path: "/group/\(localImage.groupId!.uuidString.lowercased())/images", decode: GroupImage.self, parameters: ["name": name])
@@ -206,8 +206,8 @@ class GroupViewModel: NSObject, ObservableObject {
             saveProgress = Double(downloadedImages.count + 1) / Double(selectedSubviews.count)
             print("Downloading image: \(selectedImage.imageName!)")
             
-            if let (data, _) = try? await URLSession.shared.data(from: URL(string: url)!) {
-                downloadedImages.append(UIImage(data: data)!)
+            if let image = try? await ImagePipeline.shared.image(for: URL(string: url)!) {
+                downloadedImages.append(image)
             }
         }
         

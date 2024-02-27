@@ -2,9 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>API_URL</key>
-	<string>https://lamb-uncommon-goose.ngrok-free.app</string>
-	<key>PUSHER_INSTANCE_ID</key>
-	<string>ffb55783-058c-4870-b74e-7c389327098c</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>dev.gordonkirsch.GroupCam</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>groupcam</string>
+			</array>
+		</dict>
+	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

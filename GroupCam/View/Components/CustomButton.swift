@@ -200,17 +200,17 @@ struct CloseButton: View {
         .disabled(true)
         
         AsyncButton("Loading") {
-            try? await Task.sleep(seconds: 5)
+            try? await Task.sleep(nanoseconds: 5000000000)
         }
         .primary()
         
         AsyncButton("Loading") {
-            try? await Task.sleep(seconds: 5)
+            try? await Task.sleep(nanoseconds: 5000000000)
         }
         .secondary()
         
         AsyncButton("Loading") {
-            try? await Task.sleep(seconds: 5)
+            try? await Task.sleep(nanoseconds: 5000000000)
         }
         .destructive()
     }

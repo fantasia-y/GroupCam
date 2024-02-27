@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
-import Amplify
 import SwiftUI
+import AWSClientRuntime
+import ClientRuntime
+import AWSS3
+import os
 
 enum CropOrientation {
     case portrait
@@ -16,18 +19,43 @@ enum CropOrientation {
 }
 
 class ImageUtils {
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: ImageUtils.self)
+    )
+    
     @MainActor
     static func uploadImage(_ image: UIImage, key: String) async -> String? {
-        if let data = image.jpegData(compressionQuality: 90) {
-            do {
-                let task = Amplify.Storage.uploadData(key: key, data: data, options: .init(contentType: "image/jpeg"))
-                let _ = try await task.value
-
+        do {
+            let config = try S3Client.S3ClientConfiguration(
+                region: "eu-central-1",
+                credentialsProvider: AWSClientRuntime.StaticCredentialsProvider(.init(
+                    accessKey: Secrets.awsAccessKey,
+                    secret: Secrets.awsSecretKey
+                ))
+            )
+            
+            let client = S3Client(config: config)
+            let bucket = "onecam-dev133716-dev"
+            
+            if let data = image.jpegData(compressionQuality: 90) {
+                let dataStream = ByteStream.data(data)
+                
+                let input = PutObjectInput(
+                    body: dataStream,
+                    bucket: bucket,
+                    contentType: "image/jpeg",
+                    key: key
+                )
+                
+                _ = try await client.putObject(input: input)
+                
                 return key
-            } catch {
-                print(error)
             }
+        } catch {
+            Self.logger.error("\(error.localizedDescription, privacy: .public)")
         }
+
         return nil
     }
     

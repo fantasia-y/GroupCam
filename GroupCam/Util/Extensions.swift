@@ -9,6 +9,11 @@ import Foundation
 import JWTDecode
 import UIKit
 import SwiftUI
+import GordonKirschAPI
+
+extension API {
+    public static let shared = API(Secrets.baseURL)
+}
 
 extension JWT {
     var uuid: UUID {

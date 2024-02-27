@@ -25,4 +25,21 @@ class URLUtils {
 
         return url
     }
+    
+    static func handleIncomingUrl(_ url: URL) -> String? {
+        guard url.scheme == "groupcam" else {
+            return nil
+        }
+        
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            print("Invalid URL")
+            return nil
+        }
+        
+        if let id = components.queryItems?.first(where: { $0.name == "id" })?.value {
+            return id
+        }
+        
+        return nil
+    }
 }

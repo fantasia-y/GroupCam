@@ -5,16 +5,15 @@
 //  Created by Gordon on 23.02.24.
 //
 
+import Foundation
 import SwiftUI
-import Amplify
-import AWSCognitoAuthPlugin
-import AWSS3StoragePlugin
 import PushNotifications
 import CoreData
+import Nuke
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        PushNotifications.shared.start(instanceId: Bundle.main.infoDictionary?["PUSHER_INSTANCE_ID"] as! String)
+        PushNotifications.shared.start(instanceId: Secrets.pusherInstance)
         PushNotifications.shared.registerForRemoteNotifications()
         return true
     }
@@ -40,13 +39,7 @@ struct GroupCamApp: App {
     let persistenceController = PersistenceController.shared
     
     init() {
-        do {
-            try Amplify.add(plugin: AWSCognitoAuthPlugin())
-            try Amplify.add(plugin: AWSS3StoragePlugin())
-            try Amplify.configure()
-        } catch {
-            print(error)
-        }
+        ImagePipeline.shared = ImagePipeline(configuration: .withDataCache(sizeLimit: 1024 * 1024 * 1024 * 5))
     }
     
     var body: some Scene {

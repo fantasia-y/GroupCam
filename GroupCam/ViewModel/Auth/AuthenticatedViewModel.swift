@@ -181,7 +181,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     
     func logout() async {
         PushNotifications.shared.clearAllState {
-            PushNotifications.shared.start(instanceId: Bundle.main.infoDictionary?["PUSHER_INSTANCE_ID"] as! String)
+            PushNotifications.shared.start(instanceId: Secrets.pusherInstance)
         }
         await API.shared.logout()
         await MainActor.run {

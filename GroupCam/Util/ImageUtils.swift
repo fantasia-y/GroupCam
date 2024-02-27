@@ -36,14 +36,13 @@ class ImageUtils {
             )
             
             let client = S3Client(config: config)
-            let bucket = "onecam-dev133716-dev"
             
             if let data = image.jpegData(compressionQuality: 90) {
                 let dataStream = ByteStream.data(data)
                 
                 let input = PutObjectInput(
                     body: dataStream,
-                    bucket: bucket,
+                    bucket: Secrets.awsBucket,
                     contentType: "image/jpeg",
                     key: key
                 )

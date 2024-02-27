@@ -32,4 +32,8 @@ struct Secrets {
     static var awsSecretKey: String {
         return secrets()["AWS_SECRET_ACCESS_KEY"] as! String
     }
+    
+    static var awsBucket: String {
+        return secrets()["AWS_BUCKET"] as! String
+    }
 }

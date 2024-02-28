@@ -56,14 +56,12 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         do {
             let jwt = try decode(jwt: KeychainStorage.shared.getAccessToken().token)
 
-            let tokenProvider = BeamsTokenProvider(authURL: "\(API.shared.getBaseUrl())/beamer/token") { () -> AuthData in
+            let tokenProvider = BeamsTokenProvider(authURL: "\(API.shared.getBaseUrl())/beamer") { () -> AuthData in
                 let sessionToken = KeychainStorage.shared.getAccessToken().token
                 let headers = ["Authorization": "Bearer \(sessionToken)"]
                 let queryParams: [String: String] = [:]
                 return AuthData(headers: headers, queryParams: queryParams)
             }
-            
-            
             
             PushNotifications.shared.setUserId(jwt.uuid.uuidString, tokenProvider: tokenProvider, completion: { error in
                 guard error == nil else {

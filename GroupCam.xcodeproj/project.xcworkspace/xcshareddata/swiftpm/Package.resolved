@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fantasia-y/GordonKirschAPI.git",
       "state" : {
-        "revision" : "cb50fdc269b9216759f719966f609d2cb435ef4d",
-        "version" : "1.1.6"
+        "revision" : "a7c4bdddd8037072f96345acb4e71db8bc2a7389",
+        "version" : "1.2.1"
       }
     },
     {
